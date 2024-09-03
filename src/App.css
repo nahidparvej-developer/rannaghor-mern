@@ -6,3 +6,9 @@ body{
         font-family: "Inter", sans-serif;
       
 }
+
+header{
+        z-index:1000 !important;
+}
+
+/* max-w-screen-2xl conainer lg:mx-auto lg:px-16 px-6 */
