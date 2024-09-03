@@ -12,3 +12,6 @@ header{
 }
 
 /* max-w-screen-2xl conainer lg:mx-auto lg:px-16 px-6 */
+.heartStar{
+        border-radius: 0px 28px 0px 28px;
+}
