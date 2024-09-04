@@ -1,6 +1,69 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Menu = () => {
+
+  const [menu, setMenu] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([]);
+  const [selectedCatagory, setSelectedCatagory] = useState('all');
+  const [sortOption, setSortOption] = useState('default');
+
+  // Loading data 
+
+  useEffect(() => {
+    // fetch data from back end 
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/menu.json');
+        const data = await response.json();
+        // console.log(data)
+        setMenu(data);
+        setFilteredItems(data);
+      } catch (error) {
+        console.log('Error Fetching data', error)
+      }
+
+    };
+
+    // call the funtion 
+    fetchData();
+  }, []);
+
+  //filtering data based on category 
+
+  const filteredByItems = (category) => {
+    const filtred = category === 'all' ? menu : menu.filter((item) => item.category === category);
+
+    setFilteredItems(filtred);
+    setSelectedCatagory(category);
+  };
+
+// Show All data 
+ const showAll = () => {
+  setFilteredItems(menu);
+  setSelectedCatagory('all');
+ }
+
+// sorting A-Z ,Z-A section
+const handleSortChanged = (option) => {
+  setSortOption(option);
+
+  let sortedItems =[...filteredItems];
+
+  // logic
+  switch(option) {
+    case "A-Z":
+      sortedItems.sort((a, b) => a.name.localeCompare(b.name))
+      // code block
+      break;
+    case 'Z-A':
+      sortedItems.sort((a, b) => b.name.localeCompare(a.name))
+      // code block
+      break;
+    default:
+      // code block
+  }
+}
+
   return (
     <div>
       {/* menu banner  */}

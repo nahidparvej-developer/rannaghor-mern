@@ -33,7 +33,10 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
-      'no-unused-var' : 0
+      'no-unused-var' : 0,
+      "react/jsx-key":'off',
+      "react/prop-types":'off',
+      "extends": "eslint:recommended"
     },
   },
 ]
