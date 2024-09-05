@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import logos from '../../public/logos.png'
 import { FaUser } from "react-icons/fa";
 import Modal from './Modal';
+import { AuthContext } from '../contexts/AuthProvider';
+import Profile from './Profile';
+
 
 const Navbar = () => {
 
     const [isSticky, setSticky] = useState(false);
-
+    
+    const {user} = useContext(AuthContext);
+    console.log(user)
+   
     useEffect( () => {
 
         const handleScroll = () => {
@@ -127,10 +133,12 @@ const Navbar = () => {
 
 
                     {/* button */}
-                    <button
-                     onClick={()=>document.getElementById('my_modal_5').showModal()}
-                     className="btn bg-yellow-500 rounded-full lg:px-6 mr-3  lg:flex items-center gap-2 text-white"><FaUser />Login</button>
+                   {
+                    user? <Profile user={user} /> :  <button
+                    onClick={()=>document.getElementById('my_modal_5').showModal()}
+                    className="btn bg-yellow-500 rounded-full lg:px-6 mr-3  lg:flex items-center gap-2 text-white"><FaUser />Login</button>
 
+                   }
                      <Modal/>
                 </div>
             </div>
