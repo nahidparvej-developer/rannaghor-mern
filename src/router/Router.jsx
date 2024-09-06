@@ -3,6 +3,9 @@ import Main from "../layout/Main";
 import Home from "../pages/home/Home";
 import Menu from "../pages/shop/Menu";
 import Signup from "../components/Signup";
+import UpdateProfile from "../pages/dashboard/UpdateProfile";
+
+
 
 const Router = createBrowserRouter([
     {
@@ -11,13 +14,17 @@ const Router = createBrowserRouter([
       children:[
         {
           path:'/',
-          element: <Home></Home>
+          element: <Home></Home>,
         },
         {
           path:'/menu',
-          element: <Menu></Menu>
+          element:<Menu></Menu> ,
+        },
+        {
+          path:'/update-profile',
+          element: <UpdateProfile></UpdateProfile>
         }
-      ]
+      ],
     },
     {
       path:'/signup',

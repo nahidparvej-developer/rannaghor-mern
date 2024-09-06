@@ -25,7 +25,7 @@ const AuthProvider = ({ children }) => {
     // signup with gmail 
 
     const signUpWithGmail = () => {
-        return signInWithPopup (auth, gooleProvider)
+        return signInWithPopup(auth, gooleProvider)
     }
 
     // login using email and password
@@ -36,7 +36,7 @@ const AuthProvider = ({ children }) => {
     // logOut 
 
     const logOut = () => {
-       return signOut(auth)
+         signOut(auth)
     }
 
     // update profile 

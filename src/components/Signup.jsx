@@ -19,7 +19,7 @@ const Signup = () => {
   // home page ar spcifig page 
   const location = useLocation();
   const navigate = useNavigate();
-  const form = location.state?.from?.pathname  || '/'  ;
+  const from = location.state?.from?.pathname  || '/';
 
 
   const onSubmit = (data) => {
